@@ -1,30 +1,30 @@
+#include <stdlib.h>
+#include <time.h>
 #include <stdio.h>
+
 /**
- * main - prints all possible different combinations of two digits
- * Return: 0 (Success)
+ * main - Determines if a number is positive, negative or zero.
+ *
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-	int ones = '0';
-	int tens = '0';
+	int n;
 
-	for (tens = '0'; tens <= '9'; tens++)
+	srand(time(0));
+	n = rand() - RAND_MAX / 2;
+	if (n > 0)
 	{
-		for (ones = '0'; ones <= '9'; ones++)
-		{
-			if (!((ones == tens) || (tens > ones)))
-			{
-				putchar(tens);
-				putchar(ones);
-				if (!(ones == '9' && tens == '8'))
-				{
-					putchar(',');
-					putchar(' ');
-				}
-			}
-		}
+		printf("%d is positive\n", n);
 	}
-
-	putchar('\n');
+	else if (n == 0)
+	{
+		printf("%d is zero\n", n);
+	}
+	else
+	{
+		printf("%d is negative\n", n);
+	}
 	return (0);
 }
+
